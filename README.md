@@ -1,4 +1,4 @@
-# Linux alass batch generator
+# Linux Alass batch generator
 A linux bash script that uses alass to correct subtitles in batch.
 
 > [!IMPORTANT]
