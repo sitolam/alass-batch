@@ -18,11 +18,12 @@ fi
 
 if [ $(which alass &>/dev/null) ]; then
   alassDir=$(which alass)
+elif [ -f "alass-linux64" ]; then
+  alassDir="${scrDir}/alass-linux64"
+  chmod +x "$alassDir"
 else
-  if [ -z "$alassDir" ]; then
-    echo "Set the directory to the alass excecutable, by setting the optional alassDir option"
-    exit 1
-  fi
+  echo "Set the directory to the alass excecutable, by setting the optional alassDir option"
+  exit 1
 fi
 
 
