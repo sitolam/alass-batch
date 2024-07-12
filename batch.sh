@@ -13,7 +13,7 @@ else
 fi
 
 if [ ! -z "$alassDir" ]; then
-  chmod +x $alassDir
+  chmod +x "$alassDir"
 fi
 
 if [ $(which alass &>/dev/null) ]; then
@@ -30,8 +30,9 @@ if [ ! -d ./output ]; then
   mkdir ./output
 fi
 
+cd "$movieDir"
 
-for video_file in $(ls "${movieDir}/*.${movieExtension}"); do
+for video_file in $(ls | grep ".${movieExtension}"); do
   base_name=$(basename "${video_file}" | sed 's/\(.*\)\..*/\1/')
   
   subtitle_file="${subDir}/${base_name}.srt"
@@ -41,16 +42,14 @@ for video_file in $(ls "${movieDir}/*.${movieExtension}"); do
   fi
 
 
-  cd $movieDir
-
   iconv -f $(file -i "${base_name}.srt" | awk -F 'charset=' '{print $2}') -t UTF-8 "${base_name}.srt" -o "${base_name}.srt"
 
-  $alassDir "$(basename "${video_file}")" "${base_name}.srt" "out.srt" 
+  "$alassDir" "$(basename "${video_file}")" "${base_name}.srt" "out.srt" 
 
   mv "out.srt" "${scrDir}/output/${base_name}.srt"
   rm "${base_name}.srt"
 
-  cd $scrDir
+  cd "$scrDir"
 
 
 done
