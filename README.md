@@ -1,8 +1,8 @@
 # Alass batch generator
-A linux script that uses alass to correct subtitles in batch.
+A linux bash script that uses alass to correct subtitles in batch.
 
 > [!IMPORTANT]
-> Please note that you need linux to run this program or run it in WSL.
+> Please note that you need linux to run this script or run it in WSL.
 > If you run it in WSL you will still need the <b>linux</b> `alass` binary.
 
 ## Installation
