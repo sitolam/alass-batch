@@ -50,7 +50,7 @@ for video_file in $(ls | grep ".${movieExtension}"); do
   mv "out.srt" "${scrDir}/output/${base_name}.srt"
   rm "${base_name}.srt"
 
-  cd "$scrDir"
+  cd "$movieDir"
 
 
 done
