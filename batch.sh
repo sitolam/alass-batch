@@ -31,7 +31,7 @@ if [ ! -d ./output ]; then
 fi
 
 
-for video_file in $(ls ${movieDir}/*.${movieExtension}); do
+for video_file in $(ls "${movieDir}/*.${movieExtension}"); do
   base_name=$(basename "${video_file}" | sed 's/\(.*\)\..*/\1/')
   
   subtitle_file="${subDir}/${base_name}.srt"
